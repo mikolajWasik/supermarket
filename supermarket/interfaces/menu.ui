@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>menu</class>
+ <widget class="QMainWindow" name="menu">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1024</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,15 +17,15 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>370</x>
       <y>70</y>
-      <width>151</width>
-      <height>51</height>
+      <width>281</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>30</pointsize>
+      <pointsize>40</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -33,37 +33,40 @@
     <property name="text">
      <string>MENU</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="storeViewButton">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>230</y>
-      <width>261</width>
-      <height>81</height>
+      <x>340</x>
+      <y>300</y>
+      <width>341</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>24</pointsize>
+      <pointsize>30</pointsize>
      </font>
     </property>
     <property name="text">
      <string>Store view</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="shoppingListButton">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>350</y>
-      <width>261</width>
-      <height>81</height>
+      <x>340</x>
+      <y>460</y>
+      <width>341</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>24</pointsize>
+      <pointsize>30</pointsize>
      </font>
     </property>
     <property name="text">
@@ -76,7 +79,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1024</width>
      <height>26</height>
     </rect>
    </property>
