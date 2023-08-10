@@ -146,8 +146,14 @@ elements</string>
    <property name="text">
     <string>Check all</string>
    </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="tristate">
+    <bool>false</bool>
+   </property>
   </widget>
-  <widget class="QPushButton" name="svBack">
+  <widget class="QPushButton" name="slBack">
    <property name="geometry">
     <rect>
      <x>40</x>

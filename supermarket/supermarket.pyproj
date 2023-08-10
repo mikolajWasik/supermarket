@@ -21,7 +21,29 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="gondolaBay.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="menu.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="shoppingList.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="storeView.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="supermarket.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="interfaces\gondolaBay.ui" />
+    <Content Include="interfaces\menu.ui" />
+    <Content Include="interfaces\shoppingList.ui" />
+    <Content Include="interfaces\storeView.ui" />
+    <Content Include="supermarket.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
