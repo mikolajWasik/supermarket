@@ -7,7 +7,7 @@ import sys
 class StoreView(QDialog):
     def __init__(self, widget):
         super(StoreView, self).__init__()
-        loadUi("interfaces/storeView.ui", self)
+        loadUi('interfaces/storeView.ui', self)
         self.widget = widget
         #for i in range(1,31):
         #    eval(f"self.gb{i}").clicked.connect(lambda x, i=i: self.goToGondolaBay(i))

@@ -7,7 +7,7 @@ import sys
 class GondolaBay(QDialog):
     def __init__(self, widget):
         super(GondolaBay, self).__init__()
-        loadUi("interfaces/gondolaBay.ui", self)
+        loadUi('interfaces/gondolaBay.ui', self)
         self.widget = widget
         #self.gbBack.clicked.connect(self.goToStoreView)
 

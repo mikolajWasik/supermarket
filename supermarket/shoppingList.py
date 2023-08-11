@@ -7,7 +7,7 @@ import sys
 class ShoppingList(QDialog):
     def __init__(self, widget):
         super(ShoppingList, self).__init__()
-        loadUi("interfaces/shoppingList.ui", self)
+        loadUi('interfaces/shoppingList.ui', self)
         self.widget = widget
         #self.deleteButton.clicked.connect(self.deleteAllChecked)
         #self.slBack.clicked.connect(self.goToMenu)

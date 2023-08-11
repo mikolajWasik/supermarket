@@ -7,7 +7,7 @@ import sys
 class Menu(QDialog):
     def __init__(self, widget, app):
         super(Menu, self).__init__()
-        loadUI("interfaces/menu.ui", self)
+        loadUi('interfaces/menu.ui', self)
         self.widget = widget
         self.app = app
         #self.storeViewButton.clicked.connect(self.goToStoreView)
