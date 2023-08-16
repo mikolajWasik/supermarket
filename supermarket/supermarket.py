@@ -17,7 +17,7 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     widget = QStackedWidget()
 
-    menu = Menu(widget, app)  # 0
+    menu = Menu(widget, app)  #0
     shoppingList = ShoppingList(widget) #1
     storeView = StoreView(widget) #2
     gondolaBay = GondolaBay(widget) #3

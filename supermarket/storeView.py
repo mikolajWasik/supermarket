@@ -4,6 +4,7 @@ from PyQt5 import QtCore, QtWidgets
 import sys
 
 
+
 class StoreView(QDialog):
     def __init__(self, widget):
         super(StoreView, self).__init__()
@@ -11,7 +12,14 @@ class StoreView(QDialog):
         self.widget = widget
         #for i in range(1,31):
         #    eval(f"self.gb{i}").clicked.connect(lambda x, i=i: self.goToGondolaBay(i))
-        #self.svBack.clicked.connect(self.goToMenu)
+        self.svBack.clicked.connect(self.goToMenu)
+
+    def goToGondolaBay(self, gondolaBayId):
+        pass
+
+    def goToMenu(self):
+        self.widget.setCurrentIndex(0)
+
 
 
 def main():
@@ -24,7 +32,6 @@ def main():
     widget = QtWidgets.QStackedWidget()
 
     storeView = StoreView()  #2
-
     widget.addWidget(storeView)
 
     widget.setFixedWidth(1024)
@@ -35,6 +42,7 @@ def main():
         sys.exit(app.exec_())
     except:
         print("")
+
 
 
 if __name__ == "__main__":

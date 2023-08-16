@@ -4,15 +4,22 @@ from PyQt5 import QtCore, QtWidgets
 import sys
 
 
+
 class Menu(QDialog):
     def __init__(self, widget, app):
         super(Menu, self).__init__()
         loadUi('interfaces/menu.ui', self)
         self.widget = widget
         self.app = app
-        #self.storeViewButton.clicked.connect(self.goToStoreView)
-        #self.shoppingListButton.clicked.connect(self.goToShoppingList)
+        self.storeViewButton.clicked.connect(self.goToStoreView)
+        self.shoppingListButton.clicked.connect(self.goToShoppingList)
         #self.exitButton.clicked.connect(self.exitApp)
+
+    def goToStoreView(self):
+        self.widget.setCurrentIndex(2)
+
+    def goToShoppingList(self):
+        self.widget.setCurrentIndex(1)
         
 
 
@@ -26,7 +33,6 @@ def main():
     widget = QtWidgets.QStackedWidget()
 
     menu = Menu()  #0
-
     widget.addWidget(menu)
 
     widget.setFixedWidth(1024)
@@ -37,6 +43,7 @@ def main():
         sys.exit(app.exec_())
     except:
         print("")
+
 
 
 if __name__ == "__main__":

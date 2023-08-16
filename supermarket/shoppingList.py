@@ -4,13 +4,21 @@ from PyQt5 import QtCore, QtWidgets
 import sys
 
 
+
 class ShoppingList(QDialog):
     def __init__(self, widget):
         super(ShoppingList, self).__init__()
         loadUi('interfaces/shoppingList.ui', self)
         self.widget = widget
         #self.deleteButton.clicked.connect(self.deleteAllChecked)
-        #self.slBack.clicked.connect(self.goToMenu)
+        self.slBack.clicked.connect(self.goToMenu)
+
+    def deleteAllChecked(self):
+        pass
+
+    def goToMenu(self):
+        self.widget.setCurrentIndex(0)
+
 
 
 def main():
@@ -23,7 +31,6 @@ def main():
     widget = QtWidgets.QStackedWidget()
 
     shoppingList = ShoppingList()  #1
-
     widget.addWidget(shoppingList)
 
     widget.setFixedWidth(1024)
@@ -34,6 +41,7 @@ def main():
         sys.exit(app.exec_())
     except:
         print("")
+
 
 
 if __name__ == "__main__":

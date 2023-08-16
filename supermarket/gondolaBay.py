@@ -4,12 +4,17 @@ from PyQt5 import QtCore, QtWidgets
 import sys
 
 
+
 class GondolaBay(QDialog):
     def __init__(self, widget):
         super(GondolaBay, self).__init__()
         loadUi('interfaces/gondolaBay.ui', self)
         self.widget = widget
-        #self.gbBack.clicked.connect(self.goToStoreView)
+        self.gbBack.clicked.connect(self.goToStoreView)
+
+    def goToStoreView(self):
+        self.widget.setCurrentIndex(2)
+
 
 
 def main():
@@ -22,7 +27,6 @@ def main():
     widget = QtWidgets.QStackedWidget()
 
     gondolaBay = GondolaBay()  #3
-
     widget.addWidget(gondolaBay)
 
     widget.setFixedWidth(1024)
@@ -33,6 +37,7 @@ def main():
         sys.exit(app.exec_())
     except:
         print("")
+
 
 
 if __name__ == "__main__":
