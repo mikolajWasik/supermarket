@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QApplication, QDialog, QStackedWidget
 from PyQt5.uic import loadUi
 from PyQt5 import QtCore, QtWidgets
 import sys
+import sqlite3 as sql
 
 
 
@@ -10,12 +11,20 @@ class StoreView(QDialog):
         super(StoreView, self).__init__()
         loadUi('interfaces/storeView.ui', self)
         self.widget = widget
-        #for i in range(1,31):
-        #    eval(f"self.gb{i}").clicked.connect(lambda x, i=i: self.goToGondolaBay(i))
+        for i in range(1,31):
+            eval(f"self.gb{i}").clicked.connect(lambda x, i=i: self.goToGondolaBay(i))
         self.svBack.clicked.connect(self.goToMenu)
 
+    def getGondolaBay(self, gondolaBay):
+        self.gondolaBay = gondolaBay
+
     def goToGondolaBay(self, gondolaBayId):
-        pass
+        self.gondolaBay.windowHeader.setText(f"Gondola bay {gondolaBayId} contents:")
+        connection = sql.connect('supermarket.db')
+        cursor = connection.cursor()
+        products = cursor.execute(f"SELECT name, cost FROM products WHERE gondolaBayID = {gondolaBayId}")
+        print([n for n in products])
+        self.widget.setCurrentIndex(3)
 
     def goToMenu(self):
         self.widget.setCurrentIndex(0)

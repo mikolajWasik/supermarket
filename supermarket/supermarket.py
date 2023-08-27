@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QApplication, QStackedWidget
 from PyQt5 import QtCore
 import sys
 
+
 from menu import Menu
 from shoppingList import ShoppingList
 from storeView import StoreView
@@ -21,6 +22,8 @@ if __name__ == '__main__':
     shoppingList = ShoppingList(widget) #1
     storeView = StoreView(widget) #2
     gondolaBay = GondolaBay(widget) #3
+
+    storeView.getGondolaBay(gondolaBay)
 
     widget.addWidget(menu)
     widget.addWidget(shoppingList)

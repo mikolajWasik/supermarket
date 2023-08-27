@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="windowHeader">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -48,16 +48,6 @@
      <string>1</string>
     </property>
    </row>
-   <row>
-    <property name="text">
-     <string>2</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>3</string>
-    </property>
-   </row>
    <column>
     <property name="text">
      <string>Product</string>
@@ -70,19 +60,21 @@
      </font>
     </property>
    </column>
+   <column>
+    <property name="text">
+     <string>Cost</string>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+   </column>
    <item row="0" column="0">
     <property name="text">
-     <string>Gouda blok</string>
-    </property>
-   </item>
-   <item row="1" column="0">
-    <property name="text">
-     <string>Coca-Cola puszka</string>
-    </property>
-   </item>
-   <item row="2" column="0">
-    <property name="text">
-     <string>Jabłko luz (kg)</string>
+     <string/>
     </property>
    </item>
   </widget>
