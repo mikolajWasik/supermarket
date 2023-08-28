@@ -37,7 +37,7 @@
     <number>3</number>
    </property>
    <property name="text">
-    <string>Entrance</string>
+    <string>Entrance / Exit</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -169,7 +169,7 @@
     <string>13</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="gb30">
+  <widget class="QPushButton" name="gb29">
    <property name="geometry">
     <rect>
      <x>370</x>
@@ -184,7 +184,7 @@
     </font>
    </property>
    <property name="text">
-    <string>30</string>
+    <string>29</string>
    </property>
   </widget>
   <widget class="QPushButton" name="gb15">
@@ -205,7 +205,7 @@
     <string>15</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="gb29">
+  <widget class="QPushButton" name="gb28">
    <property name="geometry">
     <rect>
      <x>240</x>
@@ -220,7 +220,7 @@
     </font>
    </property>
    <property name="text">
-    <string>29</string>
+    <string>28</string>
    </property>
   </widget>
   <widget class="QPushButton" name="gb25">
@@ -523,7 +523,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QPushButton" name="gb28">
+  <widget class="QPushButton" name="gb30">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -538,7 +538,7 @@
     </font>
    </property>
    <property name="text">
-    <string>28</string>
+    <string>30</string>
    </property>
   </widget>
   <widget class="QPushButton" name="gb27">
