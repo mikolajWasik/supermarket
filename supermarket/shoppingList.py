@@ -10,14 +10,22 @@ class ShoppingList(QDialog):
         super(ShoppingList, self).__init__()
         loadUi('interfaces/shoppingList.ui', self)
         self.widget = widget
+        #self.addAccept.clicked.connect(self.addToList)
         #self.deleteButton.clicked.connect(self.deleteAllChecked)
         self.slBack.clicked.connect(self.goToMenu)
+        self.saveList.clicked.connect(self.saveList)
+
+    def addToList(self):
+        pass
 
     def deleteAllChecked(self):
         pass
 
     def goToMenu(self):
         self.widget.setCurrentIndex(0)
+
+    def saveList(self):
+        pass
 
 
 

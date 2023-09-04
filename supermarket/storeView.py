@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication, QDialog, QStackedWidget
+from PyQt5.QtWidgets import QApplication, QDialog, QStackedWidget, QTableWidgetItem, QHeaderView
 from PyQt5.uic import loadUi
 from PyQt5 import QtCore, QtWidgets
 import sys
@@ -22,8 +22,15 @@ class StoreView(QDialog):
         self.gondolaBay.windowHeader.setText(f"Gondola bay {gondolaBayId} contents:")
         connection = sql.connect('supermarket.db')
         cursor = connection.cursor()
-        products = cursor.execute(f"SELECT name, cost FROM products WHERE gondolaBayID = {gondolaBayId}")
-        print([n for n in products])
+        query = cursor.execute(f"SELECT name, cost FROM products WHERE gondolaBayID = {gondolaBayId}")
+        products = [n for n in query]
+        self.gondolaBay.gondolaProductTable.setRowCount(len(products))
+        header = self.gondolaBay.gondolaProductTable.horizontalHeader()
+        header.setSectionResizeMode(0, QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(1, QHeaderView.ResizeToContents)
+        for i in range(len(products)):
+            self.gondolaBay.gondolaProductTable.setItem(i, 0, QTableWidgetItem(str(products[i][0])))
+            self.gondolaBay.gondolaProductTable.setItem(i, 1, QTableWidgetItem(str(products[i][1])))
         self.widget.setCurrentIndex(3)
 
     def goToMenu(self):
