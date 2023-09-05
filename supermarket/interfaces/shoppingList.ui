@@ -37,10 +37,10 @@
   <widget class="QTableWidget" name="shoppingListTable">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>190</y>
+     <x>420</x>
+     <y>50</y>
      <width>571</width>
-     <height>451</height>
+     <height>601</height>
     </rect>
    </property>
    <row>
@@ -98,8 +98,8 @@
   <widget class="QPushButton" name="deleteButton">
    <property name="geometry">
     <rect>
-     <x>700</x>
-     <y>510</y>
+     <x>100</x>
+     <y>480</y>
      <width>221</width>
      <height>121</height>
     </rect>
@@ -117,9 +117,9 @@ elements</string>
   <widget class="QCheckBox" name="checkAllBox">
    <property name="geometry">
     <rect>
-     <x>720</x>
-     <y>400</y>
-     <width>181</width>
+     <x>130</x>
+     <y>390</y>
+     <width>161</width>
      <height>71</height>
     </rect>
    </property>
@@ -161,8 +161,8 @@ elements</string>
   <widget class="QComboBox" name="allProductsList">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>210</y>
+     <x>30</x>
+     <y>170</y>
      <width>361</width>
      <height>51</height>
     </rect>
@@ -176,8 +176,8 @@ elements</string>
   <widget class="QPushButton" name="addAccept">
    <property name="geometry">
     <rect>
-     <x>860</x>
-     <y>290</y>
+     <x>250</x>
+     <y>250</y>
      <width>141</width>
      <height>41</height>
     </rect>

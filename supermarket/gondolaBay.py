@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QApplication, QDialog, QStackedWidget
 from PyQt5.uic import loadUi
 from PyQt5 import QtCore, QtWidgets
+
 import sys
 
 
@@ -11,6 +12,7 @@ class GondolaBay(QDialog):
         loadUi('interfaces/gondolaBay.ui', self)
         self.widget = widget
         self.gbBack.clicked.connect(self.goToStoreView)
+
 
     def goToStoreView(self):
         self.widget.setCurrentIndex(2)

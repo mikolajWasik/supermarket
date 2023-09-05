@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QApplication, QDialog, QStackedWidget
 from PyQt5.uic import loadUi
 from PyQt5 import QtCore, QtWidgets
+
 import sys
 
 
@@ -12,17 +13,21 @@ class ShoppingList(QDialog):
         self.widget = widget
         #self.addAccept.clicked.connect(self.addToList)
         #self.deleteButton.clicked.connect(self.deleteAllChecked)
+        #self.saveList.clicked.connect(self.saveList)
         self.slBack.clicked.connect(self.goToMenu)
-        self.saveList.clicked.connect(self.saveList)
+
 
     def addToList(self):
         pass
 
+
     def deleteAllChecked(self):
         pass
 
+
     def goToMenu(self):
         self.widget.setCurrentIndex(0)
+
 
     def saveList(self):
         pass
