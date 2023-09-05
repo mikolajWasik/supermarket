@@ -173,7 +173,7 @@ elements</string>
     </font>
    </property>
   </widget>
-  <widget class="QPushButton" name="addAccept">
+  <widget class="QPushButton" name="addButton">
    <property name="geometry">
     <rect>
      <x>250</x>
@@ -190,7 +190,7 @@ elements</string>
     </font>
    </property>
    <property name="text">
-    <string>Accept</string>
+    <string>Add</string>
    </property>
   </widget>
   <widget class="QPushButton" name="saveList">

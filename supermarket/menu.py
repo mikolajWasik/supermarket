@@ -27,11 +27,6 @@ class Menu(QDialog):
 
 
     def goToShoppingList(self):
-        header = self.shoppingList.shoppingListTable.horizontalHeader()
-        header.setSectionResizeMode(0, QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(1, QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(2, QHeaderView.ResizeToContents)
-
         con = sql.connect('supermarket.db')
         cur = con.cursor()
         query = cur.execute("SELECT productName, quantityNeeded, done FROM shoppingList ORDER BY ID")
@@ -43,6 +38,7 @@ class Menu(QDialog):
             self.shoppingList.shoppingListTable.setItem(i, 2, QTableWidgetItem(str(products[i][2])))
         con.close()
 
+        self.shoppingList.loadProducts()
         self.widget.setCurrentIndex(1)
 
 

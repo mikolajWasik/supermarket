@@ -1,8 +1,9 @@
-from PyQt5.QtWidgets import QApplication, QDialog, QStackedWidget
+from PyQt5.QtWidgets import QApplication, QDialog, QStackedWidget, QHeaderView, QMessageBox, QInputDialog, QLineEdit, QTableWidgetItem
 from PyQt5.uic import loadUi
 from PyQt5 import QtCore, QtWidgets
 
 import sys
+import sqlite3 as sql
 
 
 
@@ -11,14 +12,57 @@ class ShoppingList(QDialog):
         super(ShoppingList, self).__init__()
         loadUi('interfaces/shoppingList.ui', self)
         self.widget = widget
-        #self.addAccept.clicked.connect(self.addToList)
+        self.productsAttributesList = []
+
+        header = self.shoppingListTable.horizontalHeader()
+        header.setSectionResizeMode(0, QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(1, QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(2, QHeaderView.ResizeToContents)
+
+        self.addAllProductsToComboBox()
+        self.addButton.clicked.connect(self.addToList)
         #self.deleteButton.clicked.connect(self.deleteAllChecked)
         #self.saveList.clicked.connect(self.saveList)
         self.slBack.clicked.connect(self.goToMenu)
 
 
+    def addAllProductsToComboBox(self):
+        con = sql.connect('supermarket.db')
+        cur = con.cursor()
+        query = cur.execute(f"SELECT name FROM products")
+        self.allProductsList.addItem("Choose from list...")
+        products = [prod for prod in query]
+        for prod in products:
+            self.allProductsList.addItem(prod[0])
+        con.close()
+
+
+    def loadProducts(self):
+        self.shoppingListTable.setRowCount(len(self.productsAttributesList))
+        for i in range(len(self.productsAttributesList)):
+            self.shoppingListTable.setItem(i, 0, QTableWidgetItem(str(self.productsAttributesList[i][0])))
+            self.shoppingListTable.setItem(i, 1, QTableWidgetItem(str(self.productsAttributesList[i][1])))
+
+
     def addToList(self):
-        pass
+        product = self.allProductsList.currentText()
+        quantity, okPressed = QInputDialog.getText(self, "Supermarket", "Enter quantity: ", QLineEdit.Normal, "")
+        if okPressed == False and quantity == '':
+            return
+        try:
+            quantity = float(quantity)
+            if quantity % 1 == 0:
+                quantity = int(quantity)
+        except Exception as e:
+            msg = QMessageBox()
+            msg.setText(f"The entered quantity is incorrect. Exception: {e}")
+            msg.setIcon(QMessageBox.Critical)
+            msg.exec_()
+            return
+
+        self.productsAttributesList.append((product, quantity))
+        self.loadProducts()
+
 
 
     def deleteAllChecked(self):

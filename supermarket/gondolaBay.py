@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication, QDialog, QStackedWidget
+from PyQt5.QtWidgets import QApplication, QDialog, QStackedWidget, QHeaderView
 from PyQt5.uic import loadUi
 from PyQt5 import QtCore, QtWidgets
 
@@ -11,6 +11,11 @@ class GondolaBay(QDialog):
         super(GondolaBay, self).__init__()
         loadUi('interfaces/gondolaBay.ui', self)
         self.widget = widget
+
+        header = self.gondolaProductTable.horizontalHeader()
+        header.setSectionResizeMode(0, QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(1, QHeaderView.ResizeToContents)
+
         self.gbBack.clicked.connect(self.goToStoreView)
 
 

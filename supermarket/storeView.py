@@ -22,10 +22,6 @@ class StoreView(QDialog):
 
 
     def goToGondolaBay(self, gondolaBayId):
-        header = self.gondolaBay.gondolaProductTable.horizontalHeader()
-        header.setSectionResizeMode(0, QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(1, QHeaderView.ResizeToContents)
-
         self.gondolaBay.windowHeader.setText(f"Gondola bay {gondolaBayId} contents:")
         con = sql.connect('supermarket.db')
         cur = con.cursor()
