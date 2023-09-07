@@ -158,7 +158,7 @@ elements</string>
     <string>Back</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="allProductsList">
+  <widget class="QComboBox" name="allProductsComboBox">
    <property name="geometry">
     <rect>
      <x>30</x>

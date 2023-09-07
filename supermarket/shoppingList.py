@@ -12,7 +12,7 @@ class ShoppingList(QDialog):
         super(ShoppingList, self).__init__()
         loadUi('interfaces/shoppingList.ui', self)
         self.widget = widget
-        self.productsAttributesList = []
+        self.productsForSavingList = []
 
         header = self.shoppingListTable.horizontalHeader()
         header.setSectionResizeMode(0, QHeaderView.ResizeToContents)
@@ -30,24 +30,24 @@ class ShoppingList(QDialog):
         con = sql.connect('supermarket.db')
         cur = con.cursor()
         query = cur.execute(f"SELECT name FROM products")
-        self.allProductsList.addItem("Choose from list...")
+        self.allProductsComboBox.addItem("Choose from list...")
         products = [prod for prod in query]
         for prod in products:
-            self.allProductsList.addItem(prod[0])
+            self.allProductsComboBox.addItem(prod[0])
         con.close()
 
 
     def loadProducts(self):
-        self.shoppingListTable.setRowCount(len(self.productsAttributesList))
-        for i in range(len(self.productsAttributesList)):
-            self.shoppingListTable.setItem(i, 0, QTableWidgetItem(str(self.productsAttributesList[i][0])))
-            self.shoppingListTable.setItem(i, 1, QTableWidgetItem(str(self.productsAttributesList[i][1])))
+        self.shoppingListTable.setRowCount(len(self.productsForSavingList))
+        for i in range(len(self.productsForSavingList)):
+            self.shoppingListTable.setItem(i, 0, QTableWidgetItem(str(self.productsForSavingList[i][0])))
+            self.shoppingListTable.setItem(i, 1, QTableWidgetItem(str(self.productsForSavingList[i][1])))
 
 
     def addToList(self):
-        product = self.allProductsList.currentText()
+        product = self.allProductsComboBox.currentText()
         quantity, okPressed = QInputDialog.getText(self, "Supermarket", "Enter quantity: ", QLineEdit.Normal, "")
-        if okPressed == False and quantity == '':
+        if okPressed == False or quantity == '':
             return
         try:
             quantity = float(quantity)
@@ -60,7 +60,7 @@ class ShoppingList(QDialog):
             msg.exec_()
             return
 
-        self.productsAttributesList.append((product, quantity))
+        self.productsForSavingList.append((product, quantity, False))
         self.loadProducts()
 
 
